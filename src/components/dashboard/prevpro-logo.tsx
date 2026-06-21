@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useContext } from "react";
 import { PublicThemeContext } from "@/components/landing/public-theme-provider";
 import { PlatformThemeContext } from "@/components/dashboard/platform-theme-provider";
@@ -7,9 +8,6 @@ import { PlatformThemeContext } from "@/components/dashboard/platform-theme-prov
 type ThemeMode = "light" | "dark";
 
 interface PrevProLogoProps {
-  /** Força aparência para fundo claro ou escuro. `auto` usa o tema ativo da página. */
-  surface?: "auto" | "light" | "dark";
-  compact?: boolean;
   size?: "default" | "header" | "large";
   className?: string;
 }
@@ -23,88 +21,65 @@ function useActiveTheme(): ThemeMode {
   return "light";
 }
 
-function VectorLogo({
-  variant,
-  compact,
-  size,
-  className,
-}: {
-  variant: "light" | "dark";
-  compact: boolean;
-  size: "default" | "header" | "large";
-  className: string;
-}) {
-  const isLight = variant === "light";
-  const iconSize =
-    size === "large" ? "h-14 w-14 rounded-2xl" : size === "header" ? "h-11 w-11 rounded-xl" : "h-9 w-9 rounded-lg";
-  const svgSize = size === "large" ? "h-8 w-8" : size === "header" ? "h-6 w-6" : "h-5 w-5";
-  const titleSize = size === "large" ? "text-2xl" : size === "header" ? "text-xl" : "text-lg";
-  const subtitleSize = size === "large" ? "text-[11px]" : "text-[10px]";
+const BRAND_BG = "#0D1117";
 
-  return (
-    <div
-      className={`flex items-center ${size === "large" ? "gap-3.5" : size === "header" ? "gap-3" : "gap-2.5"} ${className}`}
-    >
-      <div
-        className={`flex shrink-0 items-center justify-center ${iconSize} ${
-          isLight
-            ? size === "large"
-              ? "bg-white/20 shadow-lg shadow-black/10"
-              : "bg-white/15"
-            : "bg-prevpro-blue"
-        }`}
-      >
-        <svg viewBox="0 0 24 24" fill="none" className={svgSize} aria-hidden="true">
-          <path d="M12 3L4 7v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V7l-8-4z" className="fill-white" />
-          <path
-            d="M9.5 12.5l2 2 4-4"
-            stroke={isLight ? "#0F4C81" : "#22C55E"}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
-      {!compact && (
-        <div className="flex flex-col leading-none">
-          <span
-            className={`${titleSize} font-bold tracking-tight ${
-              isLight ? "text-white" : "text-prevpro-blue"
-            }`}
-          >
-            PrevPro
-          </span>
-          <span
-            className={`${subtitleSize} mt-1 font-medium uppercase tracking-wider ${
-              isLight ? "text-white/60" : "text-slate-500"
-            }`}
-          >
-            Prevenção de Perdas
-          </span>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export function PrevProLogo({
-  surface = "auto",
-  compact = false,
+function BrandLogo({
   size = "default",
   className = "",
-}: PrevProLogoProps) {
+  onDarkSurface = false,
+}: PrevProLogoProps & { onDarkSurface?: boolean }) {
   const activeTheme = useActiveTheme();
-  const resolvedSurface: ThemeMode = surface === "auto" ? activeTheme : surface;
-  const variant = resolvedSurface === "dark" ? "light" : "dark";
+  const heightClass =
+    size === "large" ? "h-12 sm:h-14" : size === "header" ? "h-10 sm:h-11" : "h-9";
 
-  return (
-    <VectorLogo variant={variant} compact={compact} size={size} className={className} />
+  const needsBrandChip = !onDarkSurface && activeTheme === "light";
+
+  const logo = (
+    <Image
+      src="/Logo.svg"
+      alt="PrevPro BR — Prevenção de Perdas"
+      width={385}
+      height={103}
+      unoptimized
+      priority
+      className={`${heightClass} w-auto object-contain object-left ${className}`}
+    />
   );
+
+  if (needsBrandChip) {
+    return (
+      <span
+        className="inline-flex shrink-0 items-center rounded-xl px-3 py-2 shadow-sm"
+        style={{ backgroundColor: BRAND_BG }}
+      >
+        {logo}
+      </span>
+    );
+  }
+
+  return <span className="inline-flex shrink-0 items-center">{logo}</span>;
 }
 
-/** Logo vetorial para sidebar azul. */
+export function PrevProLogo(props: PrevProLogoProps) {
+  return <BrandLogo {...props} />;
+}
+
+/** Logo oficial na sidebar azul — fundo da marca integrado ao painel. */
 export function PrevProSidebarLogo({ className = "" }: { className?: string }) {
   return (
-    <VectorLogo variant="light" compact={false} size="large" className={className} />
+    <span
+      className={`inline-flex shrink-0 items-center rounded-xl px-3 py-2.5 shadow-md shadow-black/15 ${className}`}
+      style={{ backgroundColor: BRAND_BG }}
+    >
+      <Image
+        src="/Logo.svg"
+        alt="PrevPro BR — Prevenção de Perdas"
+        width={385}
+        height={103}
+        unoptimized
+        priority
+        className="h-12 w-auto object-contain object-left sm:h-14"
+      />
+    </span>
   );
 }
