@@ -5,7 +5,12 @@ import { PublicShell } from "./public-shell";
 import { DashboardMockup } from "./dashboard-mockup";
 import { QuickBenefits } from "./quick-benefits";
 import { ImpactStats } from "./impact-stats";
-import { benefits, modules, painPoints, plans } from "@/lib/landing-data";
+import { HowItWorks } from "./how-it-works";
+import { PremiumBenefits } from "./premium-benefits";
+import { RoiSection } from "./roi-section";
+import { Testimonials } from "./testimonials";
+import { FinalCta } from "./final-cta";
+import { modules, painPoints, plans } from "@/lib/landing-data";
 
 export function LandingPage() {
   return (
@@ -20,7 +25,7 @@ export function LandingPage() {
         />
         <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
-            <div className="text-center lg:text-left">
+            <div className="animate-fade-in-up text-center lg:text-left">
               <span className="inline-flex rounded-full bg-prevpro-blue/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-prevpro-blue">
                 Prevenção de Perdas com IA
               </span>
@@ -48,11 +53,14 @@ export function LandingPage() {
               </div>
               <QuickBenefits />
             </div>
-            <DashboardMockup />
+            <div className="animate-fade-in-up animate-delay-200">
+              <DashboardMockup />
+            </div>
           </div>
         </div>
       </section>
 
+      <HowItWorks />
       <ImpactStats />
 
       {/* Dor */}
@@ -65,10 +73,7 @@ export function LandingPage() {
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {painPoints.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-[var(--lp-border)] bg-[var(--lp-bg)] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-300/40 hover:shadow-lg"
-              >
+              <div key={item.title} className="lp-card rounded-2xl p-6">
                 <span className="text-3xl" aria-hidden="true">{item.icon}</span>
                 <h3 className="mt-4 text-base font-semibold text-[var(--lp-text)]">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--lp-text-muted)]">{item.description}</p>
@@ -88,11 +93,8 @@ export function LandingPage() {
           </div>
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {modules.map((mod) => (
-              <div
-                key={mod.title}
-                className="rounded-2xl border border-[var(--lp-border)] bg-[var(--lp-surface)] p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-prevpro-blue/30 hover:shadow-md"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-prevpro-blue/10 text-xl">
+              <div key={mod.title} className="lp-card group rounded-2xl p-5">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-prevpro-blue/10 text-xl transition-transform duration-300 group-hover:scale-110">
                   {mod.icon}
                 </span>
                 <h3 className="mt-4 text-sm font-semibold text-[var(--lp-text)]">{mod.title}</h3>
@@ -103,35 +105,9 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Benefícios */}
-      <section id="beneficios" className="bg-[var(--lp-surface)] py-16 transition-colors duration-300 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight text-[var(--lp-text)] sm:text-3xl">
-                Menos perdas. Mais lucro. Mais controle.
-              </h2>
-              <p className="mt-4 text-[var(--lp-text-muted)]">
-                Uma plataforma completa para transformar dados operacionais em decisões
-                que protegem sua margem e fortalecem resultados.
-              </p>
-            </div>
-            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {benefits.map((benefit) => (
-                <li
-                  key={benefit}
-                  className="flex items-center gap-3 rounded-xl border border-[var(--lp-border)] bg-[var(--lp-bg)] px-4 py-3 transition-all duration-200 hover:border-prevpro-green/30 hover:shadow-sm"
-                >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-prevpro-green/15 text-xs text-prevpro-green">
-                    ✓
-                  </span>
-                  <span className="text-sm font-medium text-[var(--lp-text)]">{benefit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      <PremiumBenefits />
+      <RoiSection />
+      <Testimonials />
 
       {/* Planos */}
       <section id="planos" className="py-16 sm:py-20">
@@ -148,10 +124,8 @@ export function LandingPage() {
             {plans.map((plan) => (
               <div
                 key={plan.id}
-                className={`relative flex flex-col rounded-2xl border p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8 ${
-                  plan.highlighted
-                    ? "border-prevpro-blue bg-gradient-to-b from-prevpro-blue/10 to-[var(--lp-surface)] ring-2 ring-prevpro-blue/20"
-                    : "border-[var(--lp-border)] bg-[var(--lp-surface)]"
+                className={`lp-card relative flex flex-col rounded-2xl p-6 sm:p-8 ${
+                  plan.highlighted ? "ring-2 ring-prevpro-blue/25" : ""
                 }`}
               >
                 {plan.highlighted && (
@@ -191,25 +165,7 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="bg-gradient-to-br from-prevpro-blue to-[#0a3d6b] py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            Quer descobrir onde sua empresa está perdendo dinheiro?
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-white/80">
-            Agende uma demonstração rápida e veja como o PrevPro pode ajudar sua
-            operação a reduzir perdas e proteger resultados.
-          </p>
-          <Link
-            href="/demo"
-            className="mt-8 inline-flex items-center justify-center rounded-xl bg-white px-8 py-3.5 text-sm font-semibold text-prevpro-blue shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-prevpro-gray hover:shadow-xl"
-          >
-            Agendar Demonstração
-          </Link>
-        </div>
-      </section>
-
+      <FinalCta />
       <LandingFooter />
     </PublicShell>
   );

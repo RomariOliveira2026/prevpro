@@ -79,21 +79,38 @@ body {
 }
 
 .public-page[data-theme="light"] {
-  --lp-bg: #f5f7fa;
+  --lp-bg: #ffffff;
   --lp-surface: #ffffff;
   --lp-surface-muted: #f8fafc;
-  --lp-border: rgba(226, 232, 240, 0.8);
+  --lp-border: rgba(226, 232, 240, 0.95);
   --lp-text: #0f172a;
   --lp-text-muted: #64748b;
-  --lp-hero-glow: rgba(15, 76, 129, 0.05);
+  --lp-hero-glow: rgba(15, 76, 129, 0.06);
+  --lp-card-shadow: 0 4px 24px rgba(15, 76, 129, 0.08), 0 1px 3px rgba(15, 76, 129, 0.04);
 }
 
 .public-page[data-theme="dark"] {
   --lp-bg: #07111f;
   --lp-surface: #0f172a;
   --lp-surface-muted: #0c1425;
-  --lp-border: rgba(51, 65, 85, 0.6);
+  --lp-border: rgba(51, 65, 85, 0.55);
   --lp-text: #f8fafc;
   --lp-text-muted: #94a3b8;
-  --lp-hero-glow: rgba(15, 76, 129, 0.15);
+  --lp-hero-glow: rgba(15, 76, 129, 0.18);
+  --lp-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(51, 65, 85, 0.4);
+}
+
+.lp-card {
+  border: 1px solid var(--lp-border);
+  background: var(--lp-surface);
+  box-shadow: var(--lp-card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.lp-card:hover {
+  transform: translateY(-2px);
+}
+
+html {
+  scroll-behavior: smooth;
 }

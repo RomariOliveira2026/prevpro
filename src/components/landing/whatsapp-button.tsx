@@ -1,8 +1,7 @@
-const WHATSAPP_NUMBER = "5579999348812";
-const WHATSAPP_MESSAGE = "Olá, gostaria de conhecer o PrevPro.";
+import { LANDING_CONTACT } from "@/lib/landing-data";
 
 export function WhatsAppButton() {
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const url = `https://wa.me/${LANDING_CONTACT.whatsapp}?text=${encodeURIComponent(LANDING_CONTACT.whatsappMessage)}`;
 
   return (
     <a

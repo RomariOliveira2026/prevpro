@@ -12,7 +12,13 @@ export function LandingHeader() {
           <Link href="/" className="shrink-0">
             <PrevProLogo />
           </Link>
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-7 lg:flex">
+            <a
+              href="#como-funciona"
+              className="text-sm font-medium text-[var(--lp-text-muted)] transition-colors duration-200 hover:text-prevpro-blue"
+            >
+              Como Funciona
+            </a>
             <a
               href="#solucao"
               className="text-sm font-medium text-[var(--lp-text-muted)] transition-colors duration-200 hover:text-prevpro-blue"

@@ -1,3 +1,73 @@
+export const LANDING_CONTACT = {
+  whatsapp: "5579999348812",
+  whatsappDisplay: "(79) 9 9934-8812",
+  whatsappMessage: "Olá, gostaria de conhecer o PrevPro.",
+  email: "comercial@prevprobr.com.br",
+  domain: "prevprobr.com.br",
+  siteUrl: "https://prevpro-app.vercel.app",
+};
+
+export const howItWorksSteps = [
+  {
+    step: 1,
+    icon: "🏪",
+    title: "Cadastro da operação",
+    description: "Configure lojas, setores, usuários e parâmetros da sua rede em minutos.",
+  },
+  {
+    step: 2,
+    icon: "📡",
+    title: "Monitoramento inteligente",
+    description: "Acompanhe validades, ocorrências e indicadores em tempo real.",
+  },
+  {
+    step: 3,
+    icon: "🔔",
+    title: "Alertas automáticos",
+    description: "Receba notificações por e-mail, WhatsApp ou push antes que vire prejuízo.",
+  },
+  {
+    step: 4,
+    icon: "💰",
+    title: "Economia e tomada de decisão",
+    description: "Transforme dados em ações e meça o retorno financeiro da operação.",
+  },
+];
+
+export const premiumBenefits = [
+  { icon: "📉", title: "Menos perdas operacionais", description: "Reduza quebras, avarias e vencimentos com controle preventivo." },
+  { icon: "📅", title: "Controle de vencimentos", description: "Monitore lotes, prazos e valor em risco por setor." },
+  { icon: "📦", title: "Redução de rupturas", description: "Antecipe falta de produtos com alertas inteligentes." },
+  { icon: "🛡️", title: "Gestão preventiva", description: "Aja antes do problema com indicadores e IA." },
+  { icon: "🚨", title: "Alertas inteligentes", description: "Priorize o que importa com classificação automática." },
+  { icon: "💵", title: "Economia mensurável", description: "Acompanhe ROI e impacto financeiro mês a mês." },
+];
+
+export const testimonials = [
+  {
+    quote: "Conseguimos reduzir perdas em poucas semanas.",
+    role: "Gerente de Operações",
+    company: "Rede SuperMax",
+  },
+  {
+    quote: "O controle de vencimentos mudou completamente nossa rotina.",
+    role: "Supervisor de Loja",
+    company: "Atacarejo Nordeste",
+  },
+  {
+    quote: "O retorno financeiro foi perceptível já no primeiro mês.",
+    role: "Diretor Comercial",
+    company: "Distribuidora Vale",
+  },
+];
+
+export const roiData = {
+  monthlyLoss: 30000,
+  reductionPercent: 32,
+  monthlySavings: 9600,
+  annualSavings: 115200,
+};
+
 export const quickBenefits = [
   { icon: "📈", title: "Menos perdas, mais lucro" },
   { icon: "📊", title: "Decisões com dados em tempo real" },
@@ -53,12 +123,7 @@ export const plans = [
     price: "R$ 197",
     period: "/mês",
     description: "Ideal para uma loja começando a profissionalizar a prevenção de perdas.",
-    features: [
-      "1 loja",
-      "Controle de validades",
-      "Ocorrências",
-      "Alertas básicos",
-    ],
+    features: ["1 loja", "Controle de validades", "Ocorrências", "Alertas básicos"],
     cta: "Começar agora",
     ctaHref: "/demo",
     highlighted: false,
@@ -69,13 +134,7 @@ export const plans = [
     price: "R$ 497",
     period: "/mês",
     description: "Para operações em crescimento que precisam de inteligência e relatórios.",
-    features: [
-      "Até 5 lojas",
-      "Relatórios",
-      "Inteligência",
-      "Exportações",
-      "WhatsApp",
-    ],
+    features: ["Até 5 lojas", "Relatórios", "Inteligência", "Exportações", "WhatsApp"],
     cta: "Começar agora",
     ctaHref: "/demo",
     highlighted: true,
@@ -86,12 +145,7 @@ export const plans = [
     price: "Sob consulta",
     period: "",
     description: "Para redes e atacarejos com operação complexa e múltiplas unidades.",
-    features: [
-      "Redes e atacarejos",
-      "Multi-loja",
-      "IA avançada",
-      "Suporte prioritário",
-    ],
+    features: ["Redes e atacarejos", "Multi-loja", "IA avançada", "Suporte prioritário"],
     cta: "Solicitar proposta",
     ctaHref: "/demo",
     highlighted: false,
