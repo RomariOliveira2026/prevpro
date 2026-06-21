@@ -10,6 +10,8 @@ import {
 } from "recharts";
 import type { CategoryOccurrencePoint } from "@/lib/dashboard-data";
 import { categoryColors, categoryLabels } from "@/lib/dashboard-data";
+import { platformTooltipClassName } from "@/lib/platform-styles";
+import { usePlatformChartColors } from "@/lib/platform-chart-colors";
 import { ChartCard } from "./chart-card";
 import { ChartWrapper } from "./chart-wrapper";
 
@@ -36,8 +38,8 @@ function CustomTooltip({
   if (!active || !payload?.length) return null;
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 shadow-lg">
-      <p className="mb-2 text-xs font-semibold text-slate-500">{label}</p>
+    <div className={platformTooltipClassName}>
+      <p className="mb-2 text-xs font-semibold text-[var(--platform-text-muted)]">{label}</p>
       <div className="space-y-1">
         {payload.map((entry) => (
           <div key={entry.dataKey} className="flex items-center justify-between gap-4">
@@ -46,11 +48,11 @@ function CustomTooltip({
                 className="h-2 w-2 rounded-full"
                 style={{ backgroundColor: entry.color }}
               />
-              <span className="text-xs text-slate-600">
+              <span className="text-xs text-[var(--platform-text-muted)]">
                 {categoryLabels[entry.dataKey as keyof typeof categoryLabels]}
               </span>
             </div>
-            <span className="text-xs font-bold text-slate-800">{entry.value}</span>
+            <span className="text-xs font-bold text-[var(--platform-text)]">{entry.value}</span>
           </div>
         ))}
       </div>
@@ -59,6 +61,8 @@ function CustomTooltip({
 }
 
 export function OccurrencesChart({ data }: OccurrencesChartProps) {
+  const chartColors = usePlatformChartColors();
+
   if (!data?.length) {
     return (
       <ChartCard
@@ -90,16 +94,16 @@ export function OccurrencesChart({ data }: OccurrencesChartProps) {
           margin={{ top: 8, right: 12, left: 0, bottom: 0 }}
           style={{ width: "100%", height: "100%" }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} vertical={false} />
           <XAxis
             dataKey="label"
-            tick={{ fill: "#94A3B8", fontSize: 11 }}
+            tick={{ fill: chartColors.axis, fontSize: 11 }}
             tickLine={false}
             axisLine={false}
             interval="preserveStartEnd"
           />
           <YAxis
-            tick={{ fill: "#94A3B8", fontSize: 11 }}
+            tick={{ fill: chartColors.axis, fontSize: 11 }}
             tickLine={false}
             axisLine={false}
             width={32}
@@ -114,7 +118,7 @@ export function OccurrencesChart({ data }: OccurrencesChartProps) {
               stroke={line.color}
               strokeWidth={2.5}
               dot={false}
-              activeDot={{ r: 5, stroke: "#fff", strokeWidth: 2 }}
+              activeDot={{ r: 5, stroke: chartColors.activeDotStroke, strokeWidth: 2 }}
             />
           ))}
         </LineChart>

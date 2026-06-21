@@ -4,6 +4,7 @@ import { Cell, Pie, PieChart, Tooltip } from "recharts";
 import type { SectorLoss } from "@/lib/dashboard-data";
 import { ChartCard } from "./chart-card";
 import { ChartWrapper } from "./chart-wrapper";
+import { platformTooltipClassName } from "@/lib/platform-styles";
 
 interface SectorLossesChartProps {
   data: SectorLoss[];
@@ -21,10 +22,10 @@ function CustomTooltip({
   const item = payload[0].payload;
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-lg">
-      <p className="text-xs font-medium text-slate-500">{item.sector}</p>
+    <div className={platformTooltipClassName}>
+      <p className="text-xs font-medium text-[var(--platform-text-muted)]">{item.sector}</p>
       <p className="text-sm font-bold text-prevpro-blue">{item.percentage}%</p>
-      <p className="text-xs text-slate-400">
+      <p className="text-xs text-[var(--platform-text-subtle)]">
         R$ {item.amount.toLocaleString("pt-BR")}
       </p>
     </div>

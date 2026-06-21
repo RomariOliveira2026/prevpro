@@ -114,3 +114,189 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Platform internal theme */
+.platform-page {
+  background: var(--platform-bg);
+  color: var(--platform-text);
+}
+
+.platform-page[data-theme="light"] {
+  --platform-bg: #f5f7fa;
+  --platform-surface: #ffffff;
+  --platform-surface-muted: #f8fafc;
+  --platform-border: rgba(226, 232, 240, 0.95);
+  --platform-text: #1e293b;
+  --platform-text-muted: #64748b;
+  --platform-text-subtle: #94a3b8;
+  --platform-header-bg: rgba(255, 255, 255, 0.9);
+  --platform-header-shadow: 0 1px 3px rgba(15, 76, 129, 0.04);
+  --platform-hover: #f5f7fa;
+  --platform-input-bg: #ffffff;
+  --platform-shadow: 0 1px 3px rgba(15, 76, 129, 0.06), 0 4px 12px rgba(15, 76, 129, 0.04);
+  --platform-shadow-hover: 0 4px 16px rgba(15, 76, 129, 0.1), 0 12px 32px rgba(15, 76, 129, 0.08);
+  --platform-chart-grid: #e2e8f0;
+  --platform-chart-axis: #64748b;
+  --platform-tooltip-bg: #ffffff;
+  --platform-tooltip-border: #e2e8f0;
+  color-scheme: light;
+}
+
+.platform-page[data-theme="dark"] {
+  --platform-bg: #07111f;
+  --platform-surface: #0f172a;
+  --platform-surface-muted: #0c1425;
+  --platform-border: #1e293b;
+  --platform-text: #f8fafc;
+  --platform-text-muted: #94a3b8;
+  --platform-text-subtle: #64748b;
+  --platform-header-bg: rgba(15, 23, 42, 0.95);
+  --platform-header-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --platform-hover: rgba(30, 41, 59, 0.6);
+  --platform-input-bg: #0f172a;
+  --platform-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(30, 41, 59, 0.5);
+  --platform-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(51, 65, 85, 0.5);
+  --platform-chart-grid: #1e293b;
+  --platform-chart-axis: #94a3b8;
+  --platform-tooltip-bg: #0f172a;
+  --platform-tooltip-border: #1e293b;
+  color-scheme: dark;
+}
+
+.platform-card {
+  border: 1px solid var(--platform-border);
+  background: var(--platform-surface);
+  box-shadow: var(--platform-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.platform-input {
+  border: 1px solid var(--platform-border);
+  background: var(--platform-input-bg);
+  color: var(--platform-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-input::placeholder {
+  color: var(--platform-text-subtle);
+}
+
+.platform-input:focus {
+  border-color: rgba(15, 76, 129, 0.4);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(15, 76, 129, 0.1);
+}
+
+.platform-tooltip {
+  border: 1px solid var(--platform-tooltip-border);
+  background: var(--platform-tooltip-bg);
+  color: var(--platform-text);
+}
+
+.platform-page[data-theme="dark"] .recharts-cartesian-grid line {
+  stroke: var(--platform-chart-grid);
+}
+
+.platform-page[data-theme="dark"] .recharts-cartesian-axis-tick-value {
+  fill: var(--platform-chart-axis);
+}
+
+.platform-page[data-theme="dark"] .recharts-text {
+  fill: var(--platform-chart-axis);
+}
+
+.platform-page[data-theme="dark"] .bg-slate-100 {
+  background-color: var(--platform-surface-muted);
+}
+
+.platform-page[data-theme="dark"] .bg-slate-50 {
+  background-color: var(--platform-surface-muted);
+}
+
+.platform-page[data-theme="dark"] .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--platform-border);
+}
+
+.platform-page[data-theme="dark"] .border-slate-100 {
+  border-color: var(--platform-border);
+}
+
+.platform-page[data-theme="dark"] .hover\:bg-slate-50:hover {
+  background-color: var(--platform-hover);
+}
+
+.platform-page[data-theme="dark"] .hover\:bg-prevpro-gray:hover {
+  background-color: var(--platform-hover);
+}
+
+.platform-page[data-theme="dark"] .bg-prevpro-gray\/30 {
+  background-color: rgba(30, 41, 59, 0.4);
+}
+
+.platform-page[data-theme="dark"] .bg-prevpro-gray\/50,
+.platform-page[data-theme="dark"] .hover\:bg-prevpro-gray\/50:hover {
+  background-color: rgba(30, 41, 59, 0.55);
+}
+
+.platform-page[data-theme="dark"] .text-slate-800 {
+  color: var(--platform-text);
+}
+
+.platform-page[data-theme="dark"] .text-slate-700 {
+  color: var(--platform-text);
+}
+
+.platform-page[data-theme="dark"] .text-slate-600 {
+  color: var(--platform-text-muted);
+}
+
+.platform-page[data-theme="dark"] .text-slate-500 {
+  color: var(--platform-text-muted);
+}
+
+.platform-page[data-theme="dark"] .text-slate-400 {
+  color: var(--platform-text-subtle);
+}
+
+.platform-page[data-theme="dark"] .border-slate-200,
+.platform-page[data-theme="dark"] .border-slate-200\/70,
+.platform-page[data-theme="dark"] .border-slate-200\/80,
+.platform-page[data-theme="dark"] .border-slate-100 {
+  border-color: var(--platform-border);
+}
+
+.platform-page[data-theme="dark"] .rounded-2xl.border.bg-white,
+.platform-page[data-theme="dark"] .rounded-xl.border.bg-white {
+  background-color: var(--platform-surface);
+}
+
+.platform-page[data-theme="dark"] input.border-slate-200,
+.platform-page[data-theme="dark"] select.border-slate-200,
+.platform-page[data-theme="dark"] textarea.border-slate-200 {
+  background-color: var(--platform-input-bg);
+  color: var(--platform-text);
+  border-color: var(--platform-border);
+}
+
+.platform-page[data-theme="dark"] input::placeholder,
+.platform-page[data-theme="dark"] textarea::placeholder {
+  color: var(--platform-text-subtle);
+}
+
+.platform-page[data-theme="dark"] .focus\:bg-white:focus {
+  background-color: var(--platform-surface);
+}
+
+.platform-page[data-theme="dark"] .bg-prevpro-gray\/50 {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+.platform-page[data-theme="dark"] button.text-prevpro-blue.bg-white,
+.platform-page[data-theme="dark"] button.bg-white.text-prevpro-blue {
+  background-color: rgba(15, 76, 129, 0.22);
+  color: #93c5fd;
+}
+
+.platform-page[data-theme="dark"] tr.hover\:bg-slate-50\/50:hover {
+  background-color: rgba(30, 41, 59, 0.35);
+}

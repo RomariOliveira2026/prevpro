@@ -194,7 +194,7 @@ export function KpiCard({
 
   return (
     <div
-      className={`group animate-fade-in-up ${delayClasses[index]} cursor-default rounded-2xl border border-slate-200/70 bg-white p-5 shadow-[0_1px_3px_rgba(15,76,129,0.06),0_4px_12px_rgba(15,76,129,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-prevpro-blue/20 hover:shadow-[0_4px_16px_rgba(15,76,129,0.1),0_12px_32px_rgba(15,76,129,0.08)] sm:p-6`}
+      className={`group platform-card animate-fade-in-up ${delayClasses[index]} cursor-default rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-prevpro-blue/20 hover:shadow-[var(--platform-shadow-hover)] sm:p-6`}
     >
       <div className="flex items-start justify-between">
         <div
@@ -209,11 +209,11 @@ export function KpiCard({
         </span>
       </div>
       <div className="mt-5">
-        <p className="text-sm font-medium text-slate-500">{title}</p>
-        <p className="mt-1.5 text-3xl font-bold tracking-tight text-slate-800 sm:text-[2rem]">
+        <p className="text-sm font-medium text-[var(--platform-text-muted)]">{title}</p>
+        <p className="mt-1.5 text-3xl font-bold tracking-tight text-[var(--platform-text)] sm:text-[2rem]">
           {value}
         </p>
-        <p className="mt-1.5 text-xs text-slate-400">{changeLabel}</p>
+        <p className="mt-1.5 text-xs text-[var(--platform-text-subtle)]">{changeLabel}</p>
       </div>
     </div>
   );

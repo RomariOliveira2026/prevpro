@@ -34,7 +34,7 @@ export function ChartWrapper({
       {ready ? (
         children
       ) : (
-        <div className="h-full w-full animate-pulse rounded-xl bg-slate-100" />
+        <div className="h-full w-full animate-pulse rounded-xl bg-[var(--platform-surface-muted)]" />
       )}
     </div>
   );

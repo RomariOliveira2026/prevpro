@@ -11,6 +11,8 @@ import {
 import type { AlertEvolutionPoint } from "@/lib/alertas-data";
 import { ChartCard } from "@/components/dashboard/chart-card";
 import { ChartWrapper } from "@/components/dashboard/chart-wrapper";
+import { usePlatformChartColors } from "@/lib/platform-chart-colors";
+import { platformTooltipClassName } from "@/lib/platform-styles";
 
 interface AlertasEvolutionChartProps {
   data: AlertEvolutionPoint[];
@@ -28,8 +30,8 @@ function CustomTooltip({
   if (!active || !payload?.length) return null;
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 shadow-lg">
-      <p className="mb-1 text-xs font-semibold text-slate-500">{label}</p>
+    <div className={platformTooltipClassName}>
+      <p className="mb-1 text-xs font-semibold text-[var(--platform-text-muted)]">{label}</p>
       <p className="text-sm font-bold text-prevpro-blue">
         {payload[0].value} alertas
       </p>
@@ -38,6 +40,8 @@ function CustomTooltip({
 }
 
 export function AlertasEvolutionChart({ data }: AlertasEvolutionChartProps) {
+  const chartColors = usePlatformChartColors();
+
   return (
     <ChartCard
       title="Evolução dos Alertas"
@@ -51,15 +55,15 @@ export function AlertasEvolutionChart({ data }: AlertasEvolutionChartProps) {
           margin={{ top: 8, right: 12, left: 0, bottom: 0 }}
           style={{ width: "100%", height: "100%" }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} vertical={false} />
           <XAxis
             dataKey="label"
-            tick={{ fill: "#94A3B8", fontSize: 11 }}
+            tick={{ fill: chartColors.axis, fontSize: 11 }}
             tickLine={false}
             axisLine={false}
           />
           <YAxis
-            tick={{ fill: "#94A3B8", fontSize: 11 }}
+            tick={{ fill: chartColors.axis, fontSize: 11 }}
             tickLine={false}
             axisLine={false}
             width={32}
@@ -71,7 +75,7 @@ export function AlertasEvolutionChart({ data }: AlertasEvolutionChartProps) {
             stroke="#0F4C81"
             strokeWidth={2.5}
             dot={false}
-            activeDot={{ r: 5, stroke: "#fff", strokeWidth: 2 }}
+            activeDot={{ r: 5, stroke: chartColors.activeDotStroke, strokeWidth: 2 }}
           />
         </LineChart>
       </ChartWrapper>
