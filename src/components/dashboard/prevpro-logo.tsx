@@ -22,7 +22,7 @@ export function PrevProLogo({ size = "default", className = "" }: PrevProLogoPro
       height={OFFICIAL_LOGO.height}
       unoptimized
       priority
-      className={`object-contain object-left ${sizeClasses[size]} ${className}`}
+      className={`bg-transparent object-contain object-left ${sizeClasses[size]} ${className}`}
     />
   );
 }
