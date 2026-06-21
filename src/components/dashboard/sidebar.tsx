@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PrevProLogo } from "./prevpro-logo";
+import { PrevProSidebarLogo } from "./prevpro-logo";
 
 const menuItems = [
   { label: "Dashboard", href: "/dashboard", icon: "🏠" },
@@ -47,9 +47,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       >
         <div className="flex items-center border-b border-white/10 px-6 py-6">
           <Link href="/dashboard" onClick={onClose} aria-label="PrevPro — ir para o dashboard">
-            <span className="inline-flex rounded-xl bg-white px-3 py-2.5 shadow-md shadow-black/10">
-              <PrevProLogo size="large" />
-            </span>
+            <PrevProSidebarLogo />
           </Link>
         </div>
 

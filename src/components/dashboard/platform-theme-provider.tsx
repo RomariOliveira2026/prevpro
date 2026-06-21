@@ -43,7 +43,7 @@ interface PlatformThemeContextValue {
   mounted: boolean;
 }
 
-const PlatformThemeContext = createContext<PlatformThemeContextValue | null>(null);
+export const PlatformThemeContext = createContext<PlatformThemeContextValue | null>(null);
 
 export function PlatformThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore(

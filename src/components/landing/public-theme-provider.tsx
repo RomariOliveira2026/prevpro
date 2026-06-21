@@ -43,7 +43,7 @@ interface PublicThemeContextValue {
   mounted: boolean;
 }
 
-const PublicThemeContext = createContext<PublicThemeContextValue | null>(null);
+export const PublicThemeContext = createContext<PublicThemeContextValue | null>(null);
 
 export function PublicThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore(

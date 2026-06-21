@@ -39,8 +39,8 @@ export function Header({
           </svg>
         </button>
 
-        <Link href="/dashboard" className="shrink-0" aria-label="PrevPro — ir para o dashboard">
-          <PrevProLogo />
+            <Link href="/dashboard" className="shrink-0" aria-label="PrevPro — ir para o dashboard">
+          <PrevProLogo size="header" />
         </Link>
 
         <div className="hidden min-w-0 border-l border-[var(--platform-border)] pl-3 lg:block">
