@@ -13,9 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PrevPro | Prevenção de Perdas",
+  title: {
+    default: "PrevPro BR | Sistema Inteligente de Prevenção de Perdas",
+    template: "%s | PrevPro BR",
+  },
   description:
-    "Sistema de prevenção de perdas para supermercados, atacados e varejistas.",
+    "Plataforma para supermercados, atacarejos e varejistas reduzirem perdas, controlarem validades, monitorarem alertas e acompanharem indicadores em tempo real.",
 };
 
 export default function RootLayout({

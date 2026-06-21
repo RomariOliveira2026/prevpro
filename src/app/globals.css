@@ -70,3 +70,30 @@ body {
 .animate-delay-700 {
   animation-delay: 560ms;
 }
+
+/* Public landing theme */
+.public-page {
+  background: var(--lp-bg);
+  color: var(--lp-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.public-page[data-theme="light"] {
+  --lp-bg: #f5f7fa;
+  --lp-surface: #ffffff;
+  --lp-surface-muted: #f8fafc;
+  --lp-border: rgba(226, 232, 240, 0.8);
+  --lp-text: #0f172a;
+  --lp-text-muted: #64748b;
+  --lp-hero-glow: rgba(15, 76, 129, 0.05);
+}
+
+.public-page[data-theme="dark"] {
+  --lp-bg: #07111f;
+  --lp-surface: #0f172a;
+  --lp-surface-muted: #0c1425;
+  --lp-border: rgba(51, 65, 85, 0.6);
+  --lp-text: #f8fafc;
+  --lp-text-muted: #94a3b8;
+  --lp-hero-glow: rgba(15, 76, 129, 0.15);
+}

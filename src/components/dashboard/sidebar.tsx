@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { PrevProLogo } from "./prevpro-logo";
 
 const menuItems = [
-  { label: "Dashboard", href: "/", icon: "🏠" },
+  { label: "Dashboard", href: "/dashboard", icon: "🏠" },
   { label: "Ocorrências", href: "/ocorrencias", icon: "📝" },
   { label: "Validades", href: "/validades", icon: "📦" },
   { label: "Alertas", href: "/alertas", icon: "🚨" },
@@ -17,7 +17,7 @@ const menuItems = [
 ];
 
 function isActiveRoute(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
+  if (href === "/dashboard") return pathname === "/dashboard";
   if (href === "#") return false;
   return pathname.startsWith(href);
 }
