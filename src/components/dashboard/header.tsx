@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { PrevProLogo } from "./prevpro-logo";
 import { PlatformThemeToggle } from "./platform-theme-toggle";
 
@@ -16,11 +17,11 @@ export function Header({
 }: HeaderProps) {
   return (
     <header className="sticky top-0 z-30 flex h-16 shrink-0 items-center justify-between border-b border-[var(--platform-border)] bg-[var(--platform-header-bg)] px-4 shadow-[var(--platform-header-shadow)] backdrop-blur-md sm:px-6">
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 items-center gap-3">
         <button
           type="button"
           onClick={onMenuClick}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-[var(--platform-text-muted)] transition-colors hover:bg-[var(--platform-hover)] hover:text-prevpro-blue lg:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[var(--platform-text-muted)] transition-colors hover:bg-[var(--platform-hover)] hover:text-prevpro-blue lg:hidden"
           aria-label="Abrir menu"
         >
           <svg
@@ -38,15 +39,15 @@ export function Header({
           </svg>
         </button>
 
-        <div className="hidden lg:block">
-          <h1 className="text-lg font-semibold tracking-tight text-[var(--platform-text)]">
+        <Link href="/dashboard" className="shrink-0" aria-label="PrevPro — ir para o dashboard">
+          <PrevProLogo />
+        </Link>
+
+        <div className="hidden min-w-0 border-l border-[var(--platform-border)] pl-3 lg:block">
+          <h1 className="truncate text-lg font-semibold tracking-tight text-[var(--platform-text)]">
             {title}
           </h1>
-          <p className="text-xs text-[var(--platform-text-muted)]">{subtitle}</p>
-        </div>
-
-        <div className="lg:hidden">
-          <PrevProLogo compact />
+          <p className="truncate text-xs text-[var(--platform-text-muted)]">{subtitle}</p>
         </div>
       </div>
 

@@ -10,7 +10,9 @@ export function LandingFooter() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <PrevProLogo />
+            <Link href="/" aria-label="PrevPro — página inicial">
+              <PrevProLogo size="large" />
+            </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--lp-text-muted)]">
               Sistema Inteligente de Prevenção de Perdas para supermercados,
               atacarejos, farmácias e distribuidores.

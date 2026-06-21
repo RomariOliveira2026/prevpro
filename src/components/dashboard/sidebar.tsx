@@ -45,8 +45,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center border-b border-white/10 px-6 py-7">
-          <PrevProLogo variant="light" size="large" />
+        <div className="flex items-center border-b border-white/10 px-6 py-6">
+          <Link href="/dashboard" onClick={onClose} aria-label="PrevPro — ir para o dashboard">
+            <span className="inline-flex rounded-xl bg-white px-3 py-2.5 shadow-md shadow-black/10">
+              <PrevProLogo size="large" />
+            </span>
+          </Link>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-4 py-5">
