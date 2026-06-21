@@ -22,7 +22,6 @@ export function InteligenciaView() {
       <PageHeader
         title="Central de Inteligência"
         subtitle="Plataforma de inteligência para prevenção de perdas"
-        className="lg:hidden"
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">

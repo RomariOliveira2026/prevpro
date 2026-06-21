@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { DashboardFooter } from "@/components/dashboard/dashboard-footer";
+import { PageHeader } from "@/components/dashboard/page-header";
 import { ExpiringProductsTable } from "@/components/dashboard/expiring-products-table";
 import { IntelligenceInsightsCard } from "@/components/dashboard/intelligence-insights-card";
 import { KpiCard } from "@/components/dashboard/kpi-card";
@@ -25,8 +26,13 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   return (
-    <DashboardShell title="Dashboard" subtitle="Visão geral da rede · Junho 2026">
+    <DashboardShell>
       <div className="mx-auto max-w-7xl space-y-6">
+        <PageHeader
+          title="Dashboard"
+          subtitle="Visão geral da rede · Junho 2026"
+        />
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {kpiData.map((kpi, index) => (
             <KpiCard key={kpi.title} {...kpi} index={index} />

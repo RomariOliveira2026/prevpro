@@ -8,7 +8,7 @@ export function LandingHeader() {
     <div className="sticky top-0 z-50">
       <TopAnnouncementBar />
       <header className="border-b border-[var(--lp-border)] bg-[var(--lp-surface)]/90 backdrop-blur-md transition-colors duration-300">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
           <Link href="/" className="shrink-0">
             <PrevProLogo size="header" />
           </Link>

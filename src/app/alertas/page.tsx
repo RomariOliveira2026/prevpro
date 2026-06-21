@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { DashboardFooter } from "@/components/dashboard/dashboard-footer";
-import { PageHeader } from "@/components/dashboard/page-header";
 import { AlertasView } from "@/components/alertas/alertas-view";
 
 export const metadata: Metadata = {
@@ -11,17 +10,8 @@ export const metadata: Metadata = {
 
 export default function AlertasPage() {
   return (
-    <DashboardShell
-      title="Central de Alertas"
-      subtitle="Monitoramento em tempo real de riscos operacionais"
-    >
+    <DashboardShell>
       <div className="mx-auto max-w-7xl space-y-6">
-        <PageHeader
-          title="Central de Alertas"
-          subtitle="Monitoramento em tempo real de riscos operacionais"
-          className="hidden lg:block"
-        />
-
         <AlertasView />
 
         <DashboardFooter />

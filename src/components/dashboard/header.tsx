@@ -6,17 +6,11 @@ import { PlatformThemeToggle } from "./platform-theme-toggle";
 
 interface HeaderProps {
   onMenuClick: () => void;
-  title?: string;
-  subtitle?: string;
 }
 
-export function Header({
-  onMenuClick,
-  title = "Dashboard",
-  subtitle = "Visão geral da rede · Junho 2026",
-}: HeaderProps) {
+export function Header({ onMenuClick }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-30 flex h-16 shrink-0 items-center justify-between border-b border-[var(--platform-border)] bg-[var(--platform-header-bg)] px-4 shadow-[var(--platform-header-shadow)] backdrop-blur-md sm:px-6">
+    <header className="sticky top-0 z-30 flex min-h-[4.5rem] shrink-0 items-center justify-between border-b border-[var(--platform-border)] bg-[var(--platform-header-bg)] px-4 py-2 shadow-[var(--platform-header-shadow)] backdrop-blur-md sm:min-h-[5rem] sm:px-6">
       <div className="flex min-w-0 items-center gap-3">
         <button
           type="button"
@@ -39,16 +33,9 @@ export function Header({
           </svg>
         </button>
 
-            <Link href="/dashboard" className="shrink-0" aria-label="PrevPro — ir para o dashboard">
+        <Link href="/dashboard" className="shrink-0" aria-label="PrevPro — ir para o dashboard">
           <PrevProLogo size="header" />
         </Link>
-
-        <div className="hidden min-w-0 border-l border-[var(--platform-border)] pl-3 lg:block">
-          <h1 className="truncate text-lg font-semibold tracking-tight text-[var(--platform-text)]">
-            {title}
-          </h1>
-          <p className="truncate text-xs text-[var(--platform-text-muted)]">{subtitle}</p>
-        </div>
       </div>
 
       <div className="flex items-center gap-2 sm:gap-3">

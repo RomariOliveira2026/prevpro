@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LANDING_CONTACT } from "@/lib/landing-data";
-import { OFFICIAL_LOGO } from "@/lib/brand";
+import { BRAND_FAVICON, OFFICIAL_LOGO } from "@/lib/brand";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
     images: [OFFICIAL_LOGO.src],
   },
   icons: {
-    icon: OFFICIAL_LOGO.src,
-    shortcut: OFFICIAL_LOGO.src,
-    apple: OFFICIAL_LOGO.src,
+    icon: BRAND_FAVICON.src,
+    shortcut: BRAND_FAVICON.src,
+    apple: BRAND_FAVICON.src,
   },
 };
 

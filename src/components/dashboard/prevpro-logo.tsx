@@ -7,10 +7,10 @@ interface PrevProLogoProps {
 }
 
 const sizeClasses: Record<NonNullable<PrevProLogoProps["size"]>, string> = {
-  compact: "h-7 w-auto",
-  default: "h-9 w-auto",
-  header: "h-11 w-auto sm:h-12",
-  large: "h-14 w-auto sm:h-[3.75rem]",
+  compact: "h-8 w-auto",
+  default: "h-10 w-auto",
+  header: "h-[3.75rem] w-auto sm:h-[4.25rem]",
+  large: "h-16 w-auto sm:h-[4.5rem]",
 };
 
 export function PrevProLogo({ size = "default", className = "" }: PrevProLogoProps) {
