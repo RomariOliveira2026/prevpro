@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LANDING_CONTACT } from "@/lib/landing-data";
+import { OFFICIAL_LOGO } from "@/lib/brand";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -42,16 +43,25 @@ export const metadata: Metadata = {
     siteName: "PrevPro BR",
     title: "PrevPro BR | Sistema Inteligente de Prevenção de Perdas",
     description: siteDescription,
+    images: [
+      {
+        url: OFFICIAL_LOGO.src,
+        width: OFFICIAL_LOGO.width,
+        height: OFFICIAL_LOGO.height,
+        alt: OFFICIAL_LOGO.alt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PrevPro BR | Sistema Inteligente de Prevenção de Perdas",
     description: siteDescription,
+    images: [OFFICIAL_LOGO.src],
   },
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: OFFICIAL_LOGO.src,
+    shortcut: OFFICIAL_LOGO.src,
+    apple: OFFICIAL_LOGO.src,
   },
 };
 

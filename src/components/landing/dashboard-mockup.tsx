@@ -1,3 +1,5 @@
+import { PrevProLogo } from "@/components/dashboard/prevpro-logo";
+
 export function DashboardMockup() {
   const sidebarItems = [
     { label: "Dashboard", active: true },
@@ -41,10 +43,7 @@ export function DashboardMockup() {
         <div className="flex min-h-[360px] sm:min-h-[420px]">
           {/* Sidebar */}
           <div className="hidden w-36 shrink-0 bg-gradient-to-b from-prevpro-blue to-[#0a3d6b] p-3 sm:block">
-            <div className="flex items-center gap-2">
-              <div className="h-7 w-7 rounded-lg bg-white/20" />
-              <span className="text-[10px] font-bold text-white">PrevPro</span>
-            </div>
+            <PrevProLogo size="compact" className="max-w-full" />
             <nav className="mt-5 space-y-1">
               {sidebarItems.map((item) => (
                 <div
