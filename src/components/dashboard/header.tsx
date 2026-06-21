@@ -39,6 +39,29 @@ export function Header({ onMenuClick }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-2 sm:gap-3">
+        <Link
+          href="/"
+          title="Voltar ao Site"
+          aria-label="Voltar ao Site"
+          className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl px-2.5 text-sm font-medium text-[var(--platform-text-muted)] transition-colors hover:bg-[var(--platform-hover)] hover:text-prevpro-blue sm:px-3"
+        >
+          <svg
+            className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          <span className="hidden sm:inline">Voltar ao Site</span>
+        </Link>
+
         <PlatformThemeToggle />
 
         <button

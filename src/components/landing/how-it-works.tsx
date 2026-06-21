@@ -15,7 +15,7 @@ export function HowItWorks() {
               key={item.step}
               className="lp-card group relative rounded-2xl p-6"
             >
-              <span className="absolute right-4 top-4 text-4xl font-bold text-prevpro-blue/10 transition-colors group-hover:text-prevpro-blue/20">
+              <span className="absolute right-4 top-4 text-4xl font-bold text-[#00b5f4] drop-shadow-[0_0_10px_rgba(0,181,244,0.35)] transition-[filter] group-hover:drop-shadow-[0_0_14px_rgba(0,181,244,0.5)]">
                 {item.step}
               </span>
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-prevpro-blue/10 text-2xl transition-transform duration-300 group-hover:scale-110">
